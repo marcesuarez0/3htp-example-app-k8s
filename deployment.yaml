@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 3htp-example-app-k8s
+spec:
+  selector:
+    matchLabels:
+      app: 3htp-example-app-k8s
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: 3htp-example-app-k8s
+    spec:
+      containers:
+      - name: 3htp-example-app-k8s
+        image:
+        command: ["/bin/bash","-c"]
+        args: ["nginx -g 'daemon off;'"]
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 100m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+        volumeMounts:
+        - mountPath: /usr/share/nginx/html/index.html
+          name: conf-volumen
+          subPath: index.html
+        - mountPath: /usr/share/nginx/html/styles.css
+          name: conf-volumen
+          subPath: styles.css
+        - name: tz-config
+          mountPath: /etc/localtime
+
+      volumes:
+      - name: conf-volumen
+        configMap:
+          name: config-3htp-example-app-k8s
+          items:
+          - key: index.html
+            path: index.html
+          - key: styles.css
+            path: styles.css
+      - name: tz-config
+        hostPath:
+           path: /usr/share/zoneinfo/America/Bogota

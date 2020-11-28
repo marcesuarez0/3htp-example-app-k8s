@@ -1,0 +1,53 @@
+apiVersion: v1
+data:
+  index.html: |
+    <html>
+
+        <head>
+            <meta charset='UTF-8'>
+            <title>3HTP Example App</title>
+            <link rel="stylesheet" href="styles.css">
+        </head>
+
+        <body>
+            <img src=https://upload.wikimedia.org/wikipedia/commons/6/67/Kubernetes_logo.svg width=20%></img>
+
+            <div class="inner">
+                <center><h1>3HTP Example App</h1></center>
+
+                <center><img src=https://sites.google.com/a/3htp.com/www/_/rsrc/1377845478848/quienes-somos/Logo-3htp-144x144.jpg></img>
+
+                  <p>
+                    You've successfully deployed the 3HTP Example App.
+                  </p>
+
+                <a href="https://www.3htp.com/" data-size="large" >3HTP Link</a><script charset="utf-8"></script>
+            </div>
+        </body>
+
+    </html>
+  styles.css: |
+    body {
+      background-image: linear-gradient(-74deg, transparent 90%, rgba(255, 255, 255, 0.23) 20%),
+                          linear-gradient(-74deg, transparent 83%, rgba(255, 255, 255, 0.18) 15%),
+                          linear-gradient(-74deg, transparent 76%, rgba(255, 255, 255, 0.1) 15%),
+                          linear-gradient(to top, #127ab1, #1799e0, #1796db);
+    background-size: cover;
+    margin-bottom: 0px!important;
+    }
+
+    div{
+        font-family: 'Geomanist', sans-serif;
+    font-weight: normal;
+    color: white;
+        width: 50%;
+        margin: 0 auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: config-3htp-example-app-k8s
