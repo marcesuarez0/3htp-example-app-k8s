@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: 3htp-example-app-k8s
-        image:
+        image: nginx
         command: ["/bin/bash","-c"]
         args: ["nginx -g 'daemon off;'"]
         ports:
