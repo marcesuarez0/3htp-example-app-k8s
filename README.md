@@ -1,1 +1,3 @@
-# 3htp-example-app-k8s
+#3HTP Example App
+
+Simple 3HTP Example App based on Nginx.
